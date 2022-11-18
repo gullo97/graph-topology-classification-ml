@@ -1,0 +1,7 @@
+This notebook is not intended to be a tutorial; in the following I will show a way to represent texts in a graph form and develop a machine learning approach to classify them. The main idea is to represent each text as a graph, where nodes are unique words in the text and edges are formed between adiacent words. The graph is then augmented by adding features to each node using the the Node2Vec algorithm. 
+I will then use a Graph Convolutional Network to combine the vector representation of each node with the topology of the graph to classify each node in the graph. The network will be trained on a set of labeled texts and will be able to classify new words/texts.
+
+The main advantage of this approach is that it does not require any preprocessing of the text, such as tokenization, stemming, etc. The only preprocessing step is to remove the punctuation and to convert all words to lowercase. 
+
+Currently, the graph representation has no notion of semantic similarity between words as the only information fed to the network is the topology of the graph and the vectorial representation of each node learned by node2vec. Thas said, the graph representation is also very simple and can be easily extended to include more information about the words. 
+Also, because of the way the graph is constructed, the same code can be used to compare texts of different lengths, even if the aren't in the same language and can in fact be used to compare the structure (graph topology) of texts in different languages.
